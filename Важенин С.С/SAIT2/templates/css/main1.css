@@ -1,0 +1,147 @@
+
+html { height: 100%; }
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+}
+
+
+header {
+/* Высота «шапки» должна быть статичной и занимать столько места сколько ей нужно*/
+/* 0 flex-grow, 0 flex-shrink, auto flex-basis */
+flex: 0 0;
+background-color: #bf0021;
+height: 10%;
+}
+
+
+main {
+padding-top: 150px;
+padding-bottom: 10px;
+background-color: #ffff;
+height: 60%;
+/* Установим значение flex-grow равным 1, чтобы основное содержимое занимало все оставшееся место на странице. У остальных элементов flex-grow: 0, потому что их высота статична. */
+/* 1 flex-grow, 0 flex-shrink, auto flex-basis */
+flex: 0 0;
+flex-grow: 1;
+flex-shrink: 0;
+flex-basis: auto;
+ padding-top: 0px;
+
+   margin-left: 0px;
+
+}
+
+
+footer {
+/* «Подвал» также как и «шапка» имеет статичную высоту, он не должен увеличиваться или уменьшаться*/
+/* 0 flex-grow, 0 flex-shrink, auto flex-basis */
+flex: 0 0 auto;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: auto;
+background-color: #b31515;
+height: 25%;
+color: #ffff;
+}
+
+.logo-holder {
+  float:left;
+  padding-left: 12px;
+  text-align: left;
+}
+
+.iframe {
+
+}
+
+.footer {
+  possition: absolute;
+  top: 12px;
+  left: 12px;
+}
+
+.map {
+  position: relative;
+  margin-top: 55px;
+  margin-left: 1150px;
+
+}
+
+.map1 {
+  position: relative;
+  margin-top: -120px;
+  margin-left: 1150px;
+}
+
+.btnbtn-success {
+  color: #ffff
+}
+
+.textft {
+  margin-left: 100px;
+
+}
+
+.textmain1 {
+    margin-left: 550px;
+}
+
+.textmain2 {
+    margin-left: 500px;
+}
+
+.textmain3 {
+    margin-left: 450px;
+}
+
+.textmain4 {
+    margin-left: 500px;
+}
+
+.textmain5 {
+    margin-left: 445px;
+}
+
+.textmain6 {
+    margin-left: 470px;
+}
+
+.logo-img1{
+  margin-top: 70px
+}
+
+.text1 {
+  margin-top: 30px;
+}
+
+.text2 {
+
+}
+
+img {
+  max-width: 50%;
+  max-width: 100%;
+}
+
+.wrapper1 {
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.wrapper2 {
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 0 10px;
+}

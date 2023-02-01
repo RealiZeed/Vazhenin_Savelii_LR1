@@ -1,0 +1,139 @@
+
+html { height: 100%; }
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+}
+
+
+header {
+/* Высота «шапки» должна быть статичной и занимать столько места сколько ей нужно*/
+/* 0 flex-grow, 0 flex-shrink, auto flex-basis */
+flex: 0 0;
+background-color: #bf0021;
+height: 10%;
+}
+
+
+main {
+padding-top: 150px;
+padding-bottom: 150px;
+background-color: #ffff;
+height: 80%;
+/* Установим значение flex-grow равным 1, чтобы основное содержимое занимало все оставшееся место на странице. У остальных элементов flex-grow: 0, потому что их высота статична. */
+/* 1 flex-grow, 0 flex-shrink, auto flex-basis */
+flex: 0 0;
+flex-grow: 1;
+flex-shrink: 0;
+flex-basis: auto;
+ padding-top: 0px;
+ background: #fff url(../img/fon.png); /* Фоновый цвет и фоновый рисунок*/
+   color: #black; /*Цвет текста на странице*/
+   /*background-attachment: fixed; /* Фон страницы фиксируется */
+   /*background-repeat: repeat-x; /* Изображение повторяется по горизонтали */
+   background-size: 1550px;
+   background-position: top 100px;
+   margin-left: 0px;
+
+}
+
+
+footer {
+/* «Подвал» также как и «шапка» имеет статичную высоту, он не должен увеличиваться или уменьшаться*/
+/* 0 flex-grow, 0 flex-shrink, auto flex-basis */
+flex: 0 0 auto;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: auto;
+background-color: #b31515;
+height: 25%;
+color: #ffff;
+}
+
+.logo-holder {
+  float:left;
+  padding-left: 12px;
+  text-align: left;
+}
+
+.iframe {
+
+}
+
+.footer {
+  possition: absolute;
+  top: 12px;
+  left: 12px;
+}
+
+.map {
+  position: relative;
+  margin-top: 55px;
+  margin-left: 1150px;
+
+}
+
+.map1 {
+  position: relative;
+  margin-top: -170px;
+  margin-left: 1150px;
+
+}
+
+.btnbtn-success {
+  color: #ffff
+}
+
+.textft {
+  margin-left: 100px;
+
+}
+
+.textmain1 {
+    margin-left: 550px;
+}
+
+.textmain2 {
+    margin-left: 500px;
+}
+
+.textmain3 {
+    margin-left: 450px;
+}
+
+.textmain4 {
+    margin-left: 500px;
+}
+
+.textmain5 {
+    margin-left: 445px;
+}
+
+.textmain6 {
+    margin-left: 470px;
+}
+
+.logo-img1{
+  margin-top: 70px
+}
+
+.text1 {
+  margin-top: 100px;
+}
+
+.wrapper1 {
+  position: absolute;
+  top: 50%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PartyHere</title>
+        <!-- Подключение библиотеки jQuery-->
+    <script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous">
+    </script>
+
+    <!-- Код взаимодействия с сервером -->
+    <script language="JavaScript">
+        function YourFunction() {
+            console.log("Профиль успешно создан");
+            window.location.href = 'auth';
+        }
+        function doRegister() {
+            var user_login = document.getElementById("login").value;
+            var user_password = document.getElementById("password").value;
+            
+            $.ajax({
+                url: '{{ url_for('register')}}',
+                type: 'POST',
+                data: {
+                    login: user_login,
+                    password: user_password
+                },
+                success: function(responce) {
+                if(responce == "True")
+                    YourFunction();
+                else { 
+                    console.log(responce); 
+                }
+            },
+                error: function(responce) {}
+            });
+        };
+        
+    </script>
+</head>
+
+<body>
+    <b>Регистрация</b><br/>
+    
+    Login
+    <input id="login" type="text" name="Login" value="">
+    Password
+    <input id="password" type="text" name="Password" value="">
+    <button id="btn_register" onclick="doRegister();">Register</button>
+</body>
+<html>

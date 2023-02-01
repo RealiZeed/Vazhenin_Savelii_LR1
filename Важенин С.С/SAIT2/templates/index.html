@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Окна да!</title>
+            <script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous">
+    </script>
+
+    <!-- Код взаимодействия с сервером -->
+    <script language="JavaScript">
+        function send_zay() {
+            var z_name = document.getElementById("zname").value;
+            var z_num = document.getElementById("znum").value;
+            var z_home = document.getElementById("zhome").value;
+            var z_mail = document.getElementById("zmail").value;
+            $.ajax({
+                url: '{{ url_for('send_zayavka')}}',
+                type: 'POST',
+                data: {
+                    zname: z_name,
+                    znum: z_num,
+                    zhome : z_home,
+                    zmail : z_mail
+                },
+                success: function(responce) {
+                if(responce == "True")
+                    console.log('Заявка отправлена')
+                else { 
+                    console.log(responce); 
+                }
+            },
+                error: function(responce) { console.log('OSHIBKA')}
+            });
+        };
+        
+        var username = "{{ data.username }}"
+        
+        function getName() {
+            return username;
+        }
+
+        $(() => {
+            console.log(getName());
+                if(getName() != "None") {
+                    var html = "<b>" + getName() + "</b><br>";
+                    var div = $(html); // div = визуальный элемент с сообщением
+                    
+                    var el = document.getElementById('acc');
+                    el.firstChild.data = getName();
+                    el.href = '/';
+                   
+                }
+            });
+    </script>
+      
+    <link rel="stylesheet" type= "text/css" href="{{ url_for('static',filename='css/main.css') }}">
+    <style>
+     .button1 {
+     background-color: #ff0000;
+     border: none;
+     color: #ffff;
+     padding: 20px 34px;
+     text-align: center;
+     text-decoration: none;
+     display: inline-block;
+     font-size: 20px;
+     margin: 4px 2px;
+     cursor: pointer;
+     position: relative;
+     left: 612px;
+     top: 4px;
+     }
+
+     .button2 {
+     background-color: #ff0000;
+     border: none;
+     color: #ffff;
+     padding: 20px 34px;
+     text-align: center;
+     text-decoration: none;
+     display: inline-block;
+     font-size: 20px;
+     margin: 4px 2px;
+     cursor: pointer;
+     position: relative;
+     left: 380px;
+     top: -67px;
+     }
+
+     .button3 {
+     background-color: #ff0000;
+     border: none;
+     color: #ffff;
+     padding: 20px 34px;
+     text-align: center;
+     text-decoration: none;
+     display: inline-block;
+     font-size: 20px;
+     margin: 4px 2px;
+     cursor: pointer;
+     position: relative;
+     left: 300px;
+     top: -137px;
+     }
+        
+    .button4 {
+        background-color: #ff0000;
+         border: none;
+         color: #ffff;
+         padding: 20px 34px;
+         text-align: center;
+         text-decoration: none;
+         display: inline-block;
+         font-size: 20px;
+         cursor: pointer;
+         position: relative;
+         left: 88%;
+         top: -200%;
+    }
+
+     .img {
+       position: relative;
+       left: 50px;
+       top: 30px;
+     }
+        .zayavka{
+            position: relative;
+            background: #ffff;
+            width: 35%;
+            left: 32%;
+        }
+   </style>
+
+   <link href="https://lk.wapico.ru/widget/plugin/components/font-awesome/css/fontawesome.min.css" rel="stylesheet">
+   <link href="https://lk.wapico.ru/widget/plugin/czm-chat-support.css" rel="stylesheet">
+
+
+    </head>
+<header>
+    <div class="logo-holder">
+      <img src="static/img/logo1.png" alt="WINDOW_YES!"
+      class="logo-img" width="160" height="78" >
+    </div>
+    <a href="/services" class="button1">Услуги</a>
+    <form action="str/newindex2.html" target="_blank">
+    </form>
+    <a href="/examples" class="button2">Примеры работ</a>
+    <form action="newindex.html" target="_blank">
+    </form>
+    <a href="/" class="button3">Главная страница</a>
+    <form action="index.html" target="_blank">
+    </form>
+    <a href="/auth" id='acc' class="button4">Авторизация</a>
+    <form action="login.html" target="_blank">
+    </form>
+  </header>
+    <body>
+      <div class="wrapper">
+        <main class="main">
+          <div class="logo-main">
+            <center><img src="static/img/logo2.jpg" alt="WINDOW_YES!"
+            class="logo-img1" width="200" height="100">
+          </center></div>
+          <div class="textmain1">
+          <p>
+            <font size="4" color="black" face="times new roman">Мы работаем в сфере ремонтно-строительных услуг.</font>
+            </p>
+          </div>
+          <div class="textmain2">
+            <p>
+            <font size="4" color="black" face="times new roman">Мы проделываем активную и качественную работу более 15 лет</font>
+            </p>
+          </div>
+          <div class="textmain3">
+            <p>
+              <font size="4" color="black" face="times new roman">Наши высококвалифицированные сотрудники выполнят работу любой сложности.</font>
+              </p>
+            </div>
+              <div class="textmain4">
+              <p>
+                <font size="4" color="black" face="times new roman">Наша компания гарантирует своевременное выполнение заказов.</font>
+                </p>
+                </div>
+                <div class="textmain5">
+                <p>
+                  <font size="4" color="black" face="times new roman">В работе мы используем высококачественные материалы и новейшее оборудование.</font>
+                  </p>
+                  </div>
+                  <div class="textmain6">
+                  <p>
+                    <font size="4" color="black" face="times new roman">Мы гарантируем контроль качества на всех стадиях выполнения работ!</font>
+                    </p>
+                    </div>
+            <div class="zayavka">
+                <center>
+                    <p>Ваше ФИО:</p>
+                    <input id='zname' type="text" size="70">
+                    <p>Номер телефона:</p>
+                    <input id='znum' type="text" size="70">
+                    <p>Адрес проживания:</p>
+                    <input id='zhome' type="text" size="70">
+                    <p>Электронная почта:</p>
+                    <input id='zmail' type="text" size="70">
+                    <br>
+                    <button onclick="send_zay()">Отправить</button>
+                </center>
+            </div>
+
+                    <!-- *** [START] REQUIRED CSS FILES *** -->
+  	<link href="https://lk.wapico.ru/widget/plugin/components/font-awesome/css/fontawesome.min.css" rel="stylesheet">
+  <link href="https://lk.wapico.ru/widget/plugin/czm-chat-support.css" rel="stylesheet">
+  	<!-- *** [END] REQUIRED CSS FILES *** -->
+
+  </head>
+  <body>
+
+  	<!-- *** [START] REQUIRED DIV *** -->
+  	<div id="example"></div>
+  	<!-- *** [END] REQUIRED DIV *** -->
+
+  	<!-- *** [START] REQUIRED JS FILES *** -->
+  	<script src="https://lk.wapico.ru/widget/plugin/components/jquery/jquery-1.9.0.min.js"></script>
+  <script src="https://lk.wapico.ru/widget/plugin/components/moment/moment.min.js"></script>
+  <script src="https://lk.wapico.ru/widget/plugin/components/moment/moment-timezone-with-data.min.js"></script>
+  <script src="https://lk.wapico.ru/widget/plugin/czm-chat-support.min.js"></script>
+  <script>
+
+  $('#example').czmChatSupport({
+
+  	/* Button Settings */
+  	button: {
+  		position: "right", /* left, right or false. "position:false" does not pin to the left or right */
+  		style: 1, /* Button style. Number between 1 and 7 */
+  		src: '<i class="fab fa-whatsapp"></i>', /* Image, Icon or SVG */
+  		backgroundColor: "#10c379", /* Html color code */
+  		effect: 1, /* Button effect. Number between 1 and 7 */
+  		notificationNumber: "1", /* Custom text or false. To remove, (notificationNumber:false) */
+  		speechBubble: "У вас новое сообщение!🙂", /* To remove, (speechBubble:false) */
+  		pulseEffect: true, /* To remove, (pulseEffect:false) */
+  		text: { /* For Button style larger than 1 */
+  			title: "Важенин С.В.", /* Writing is required */
+  			description: "Мастер по замерам", /* To remove, (description:false) */
+  			online: "Онлайн", /* To remove, (online:false) */
+  			offline: "Не онлайн" /* To remove, (offline:false) */
+  		}
+  	},
+
+  	/* Popup Settings */
+  	popup: {
+  		automaticOpen: false, /* true or false (Open popup automatically when the page is loaded) */
+  		outsideClickClosePopup: true, /* true or false (Clicking anywhere on the page will close the popup) */
+  		effect: 1, /* Popup opening effect. Number between 1 and 15 */
+  		header: {
+  			backgroundColor: "#10c379", /* Html color code */
+  		},
+
+  		/* Representative Settings */
+  		persons: [
+
+  		/* Copy for more representatives [::Start Copy::] */
+  		{
+  			avatar: {
+  				src: '<img src="https://lk.wapico.ru/widget/assets/img/person/1.jpg" alt="">', /* Image, Icon or SVG */
+  				backgroundColor: "#ffffff", /* Html color code */
+  				onlineCircle: true /* Avatar online circle. To remove, (onlineCircle:false) */
+  			},
+  			text: {
+  				title: "Важенин С.В.", /* Writing is required */
+  				description: "Мастер по замерам", /* To remove, (description:false) */
+
+  				/* Used on one account only */
+  				message: "Здравствуйте!🙂<br>Чем я могу вам помочь?", /* Shows message bubble. To remove, (message:false) */
+  				textbox: "Написать сообщение...", /* Allows the visitor to write the message they want. This feature is currently only available on Whatsapp. To remove, (textbox:false) */
+  				button: false /* Except for Whatsapp, you only need to use the button. For example: (button:"Start Chat") To remove, (button:false) */
+  			},
+  			link: {
+  				desktop: "https://web.whatsapp.com/send?phone=79048821342&text=Hi", /* Writing is required */
+  				mobile: "https://wa.me/79048821342/?text=Hi" /* If it is hidden desktop link will be valid. To remove, (mobile:false) */
+  			},
+  			onlineDay: {
+  				/* Change the day you are offline like this. (sunday:false) */
+  				sunday: "00:00-23:59",
+  				monday: "00:00-23:59",
+  				tuesday: "00:00-23:59",
+  				wednesday: "00:00-23:59",
+  				thursday: "00:00-23:59",
+  				friday: "00:00-23:59",
+  				saturday: "00:00-23:59"
+  			}
+  		},
+  		/* [::End Copy::] */
+
+  		]
+  	},
+
+  	/* Other Settings */
+  	sound: true, /* true (default sound), false or custom sound. Custom sound example, (sound:'https://lk.wapico.ru/widget/assets/sound/notification.mp3') */
+  	changeBrowserTitle: "У вас новое сообщение!", /* Custom text or false. To remove, (changeBrowserTitle:false) */
+  	cookie: false, /* It does not show the speech bubble, notification number, pulse effect and automatic open popup again for the specified time. For example, do not show for 1 hour, (cookie:1) or to remove, (cookie:false) */
+  });
+
+  </script>
+  	<!-- *** [END] REQUIRED JS FILES *** -->
+
+        </main>
+      </main>
+        <footer class="footer">
+          <div class="textft">
+          <p>
+            <font size="4" face="times new roman">Окна да!</font>
+          </p>
+          <p>
+            <font size="4" face="times new roman">Адрес: г.Нижневартовск, ул.Дзержинского, д.17</font>
+          </p>
+          <p>
+            <font size="4" face="times new roman">+7 (904) 882-13-42</font>
+          </p>
+          <div>
+            <a href="https://wa.me/79048821342?text=Здравствуйте!" class="btnbtn-success" size="4" face="times new roman">WhatsApp</a>
+          </div>
+          <div>
+            <a href="viber://chat?number=+79048821342" class="btnbtn-success" size="4" face="times new roman">Viber</a>
+          </div>
+
+
+
+          </div>
+        </footer>
+  </div>
+<div class="map">
+  <iframe id="map_738539864" frameborder="0"   width="300" height="115" sandbox="allow-modals allow-forms allow-scripts allow-same-origin allow-popups allow-top-navigation-by-user-activation"></iframe><script type="text/javascript">(function(e,t){var r=document.getElementById(e);r.contentWindow.document.open(),r.contentWindow.document.write(atob(t)),r.contentWindow.document.close()})("map_738539864", "PGJvZHk+PHN0eWxlPgogICAgICAgIGh0bWwsIGJvZHkgewogICAgICAgICAgICBtYXJnaW46IDA7CiAgICAgICAgICAgIHBhZGRpbmc6IDA7CiAgICAgICAgfQogICAgICAgIGh0bWwsIGJvZHksICNtYXAgewogICAgICAgICAgICB3aWR0aDogMTAwJTsKICAgICAgICAgICAgaGVpZ2h0OiAxMDAlOwogICAgICAgIH0KICAgICAgICAuYnVsbGV0LW1hcmtlciB7CiAgICAgICAgICAgIHdpZHRoOiAyMHB4OwogICAgICAgICAgICBoZWlnaHQ6IDIwcHg7CiAgICAgICAgICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7CiAgICAgICAgICAgIGJhY2tncm91bmQtY29sb3I6ICNmZmY7CiAgICAgICAgICAgIGJveC1zaGFkb3c6IDAgMXB4IDNweCAwIHJnYmEoMCwgMCwgMCwgMC4yKTsKICAgICAgICAgICAgYm9yZGVyOiA0cHggc29saWQgIzAyODFmMjsKICAgICAgICAgICAgYm9yZGVyLXJhZGl1czogNTAlOwogICAgICAgIH0KICAgICAgICAucGVybWFuZW50LXRvb2x0aXAgewogICAgICAgICAgICBiYWNrZ3JvdW5kOiBub25lOwogICAgICAgICAgICBib3gtc2hhZG93OiBub25lOwogICAgICAgICAgICBib3JkZXI6IG5vbmU7CiAgICAgICAgICAgIHBhZGRpbmc6IDZweCAxMnB4OwogICAgICAgICAgICBjb2xvcjogIzI2MjYyNjsKICAgICAgICB9CiAgICAgICAgLnBlcm1hbmVudC10b29sdGlwOmJlZm9yZSB7CiAgICAgICAgICAgIGRpc3BsYXk6IG5vbmU7CiAgICAgICAgfQogICAgICAgIC5kZy1wb3B1cF9oaWRkZW5fdHJ1ZSB7CiAgICAgICAgICAgIGRpc3BsYXk6IGJsb2NrOwogICAgICAgIH0KICAgICAgICAubGVhZmxldC1jb250YWluZXIgLmxlYWZsZXQtcG9wdXAgLmxlYWZsZXQtcG9wdXAtY2xvc2UtYnV0dG9uIHsKICAgICAgICAgICAgdG9wOiAwOwogICAgICAgICAgICByaWdodDogMDsKICAgICAgICAgICAgd2lkdGg6IDIwcHg7CiAgICAgICAgICAgIGhlaWdodDogMjBweDsKICAgICAgICAgICAgZm9udC1zaXplOiAyMHB4OwogICAgICAgICAgICBsaW5lLWhlaWdodDogMTsKICAgICAgICB9CiAgICA8L3N0eWxlPjxkaXYgaWQ9Im1hcCI+PC9kaXY+PHNjcmlwdCB0eXBlPSJ0ZXh0L2phdmFzY3JpcHQiIHNyYz0iaHR0cHM6Ly9tYXBzLmFwaS4yZ2lzLnJ1LzIuMC9sb2FkZXIuanM/cGtnPWZ1bGwmYW1wO3NraW49bGlnaHQiPjwvc2NyaXB0PjxzY3JpcHQ+KGZ1bmN0aW9uKGUpe3ZhciB0PUpTT04ucGFyc2UoZSkscj10Lm9yZGVyZWRHZW9tZXRyaWVzLG49dC5tYXBQb3NpdGlvbixhPXQuaXNXaGVlbFpvb21FbmFibGVkO2Z1bmN0aW9uIG8oZSl7cmV0dXJuIGRlY29kZVVSSUNvbXBvbmVudChhdG9iKGUpLnNwbGl0KCIiKS5tYXAoZnVuY3Rpb24oZSl7cmV0dXJuIiUiKygiMDAiK2UuY2hhckNvZGVBdCgwKS50b1N0cmluZygxNikpLnNsaWNlKC0yKX0pLmpvaW4oIiIpKX1ERy50aGVuKGZ1bmN0aW9uKCl7dmFyIGU9REcubWFwKCJtYXAiLHtjZW50ZXI6W24ubGF0LG4ubG9uXSx6b29tOm4uem9vbSxzY3JvbGxXaGVlbFpvb206YSx6b29tQ29udHJvbDohYX0pO0RHLmdlb0pTT04ocix7c3R5bGU6ZnVuY3Rpb24oZSl7dmFyIHQscixuLGEsbztyZXR1cm57ZmlsbENvbG9yOm51bGw9PT0odD1lKXx8dm9pZCAwPT09dD92b2lkIDA6dC5wcm9wZXJ0aWVzLmZpbGxDb2xvcixmaWxsT3BhY2l0eTpudWxsPT09KHI9ZSl8fHZvaWQgMD09PXI/dm9pZCAwOnIucHJvcGVydGllcy5maWxsT3BhY2l0eSxjb2xvcjpudWxsPT09KG49ZSl8fHZvaWQgMD09PW4/dm9pZCAwOm4ucHJvcGVydGllcy5zdHJva2VDb2xvcix3ZWlnaHQ6bnVsbD09PShhPWUpfHx2b2lkIDA9PT1hP3ZvaWQgMDphLnByb3BlcnRpZXMuc3Ryb2tlV2lkdGgsb3BhY2l0eTpudWxsPT09KG89ZSl8fHZvaWQgMD09PW8/dm9pZCAwOm8ucHJvcGVydGllcy5zdHJva2VPcGFjaXR5fX0scG9pbnRUb0xheWVyOmZ1bmN0aW9uKGUsdCl7cmV0dXJuInJhZGl1cyJpbiBlLnByb3BlcnRpZXM/REcuY2lyY2xlKHQsZS5wcm9wZXJ0aWVzLnJhZGl1cyk6REcubWFya2VyKHQse2ljb246ZnVuY3Rpb24oZSl7cmV0dXJuIERHLmRpdkljb24oe2h0bWw6IjxkaXYgY2xhc3M9J2J1bGxldC1tYXJrZXInIHN0eWxlPSdib3JkZXItY29sb3I6ICIrZSsiOyc+PC9kaXY+IixjbGFzc05hbWU6Im92ZXJyaWRlLWRlZmF1bHQiLGljb25TaXplOlsyMCwyMF0saWNvbkFuY2hvcjpbMTAsMTBdfSl9KGUucHJvcGVydGllcy5jb2xvcil9KX0sb25FYWNoRmVhdHVyZTpmdW5jdGlvbihlLHQpe2UucHJvcGVydGllcy5kZXNjcmlwdGlvbiYmdC5iaW5kUG9wdXAobyhlLnByb3BlcnRpZXMuZGVzY3JpcHRpb24pLHtjbG9zZUJ1dHRvbjohMCxjbG9zZU9uRXNjYXBlS2V5OiEwfSksZS5wcm9wZXJ0aWVzLnRpdGxlJiZ0LmJpbmRUb29sdGlwKG8oZS5wcm9wZXJ0aWVzLnRpdGxlKSx7cGVybWFuZW50OiEwLG9wYWNpdHk6MSxjbGFzc05hbWU6InBlcm1hbmVudC10b29sdGlwIn0pfX0pLmFkZFRvKGUpfSl9KSgneyJvcmRlcmVkR2VvbWV0cmllcyI6W3sidHlwZSI6IkZlYXR1cmUiLCJwcm9wZXJ0aWVzIjp7InRpdGxlIjoiMEo3UXV0QzkwTEFnMEpUUXNBPT0iLCJkZXNjcmlwdGlvbiI6IiIsImNvbG9yIjoiIzAyODFmMiIsInpJbmRleCI6MTAwMDAwMDAwMH0sImdlb21ldHJ5Ijp7InR5cGUiOiJQb2ludCIsImNvb3JkaW5hdGVzIjpbNzYuNTkzNjExLDYwLjk0NDI4OV19LCJpZCI6Nzc3fV0sIm1hcFBvc2l0aW9uIjp7ImxhdCI6NjAuOTQzOTg3ODk0OTIwMTQsImxvbiI6NzYuNTkzMTkyODE1NzgwNjQsInpvb20iOjE3fSwiaXNXaGVlbFpvb21FbmFibGVkIjp0cnVlfScpPC9zY3JpcHQ+PHNjcmlwdCBhc3luYz0iIiB0eXBlPSJ0ZXh0L2phdmFzY3JpcHQiIHNyYz0iaHR0cHM6Ly93d3cuZ29vZ2xldGFnbWFuYWdlci5jb20vZ3RhZy9qcz9pZD1VQS0xNTg4NjYxNjgtMSI+PC9zY3JpcHQ+PHNjcmlwdCB0eXBlPSJ0ZXh0L2phdmFzY3JpcHQiPihmdW5jdGlvbihlKXtmdW5jdGlvbiB0KCl7ZGF0YUxheWVyLnB1c2goYXJndW1lbnRzKX13aW5kb3cuZGF0YUxheWVyPXdpbmRvdy5kYXRhTGF5ZXJ8fFtdLHQoImpzIixuZXcgRGF0ZSksdCgiY29uZmlnIixlKSx3aW5kb3cuZ3RhZz10fSkoJ1VBLTE1ODg2NjE2OC0xJyk8L3NjcmlwdD48L2JvZHk+")</script>
+</div>
+    </body>
+</html>
